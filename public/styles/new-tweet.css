@@ -1,0 +1,43 @@
+main .new-tweet {
+  position: absolute;
+  width: calc(100% - 4em);
+  height: 180px;
+  margin-left: 2em;
+  border-radius: 10px;
+  border: 1px solid grey;
+  top: 60px;
+}
+
+main h2{
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  margin-top: 2%;
+  border-bottom: 1px solid grey;
+}
+
+.new-tweet #position {
+  height: 100%;
+  width: 100%;
+}
+
+main .new-tweet textarea {
+  position: absolute;
+  top: 25%;
+  width: 90%;
+  height: 50%;
+  left: 5%;
+  
+}
+
+.new-tweet input { 
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+
+.new-tweet span {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}
