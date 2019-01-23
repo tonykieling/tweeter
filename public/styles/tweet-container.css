@@ -1,0 +1,11 @@
+#tweet-container {
+  position: absolute;
+  width: calc(100% - 4em);
+  height: 180px;
+  margin-left: 2em;
+  border-radius: 10px;
+  border: 1px solid grey;
+  top: 250px;
+
+}
+
