@@ -77,31 +77,69 @@ function createTweetElement(tweetData){
 
       </article>
   `;
-
-  // let $tweet = $("<article>").addClass("tweet-container");
-  // const header = $("<header>").addClass("header").appendTo($tweet);
-  // const avatar = $("<img>").appendTo(header);
-  // const name = $("<p>").appendTo(header).addClass("namePerson");
-  // const id = $("<p>").appendTo(header).addClass("idPerson");
-  // let $content = $("<p>").appendTo($tweet).addClass("message");
-  // $content.text="text";
-  // const footer = $("<footer>").appendTo($tweet);
-  // const timeAgo = $("<p>").appendTo(footer);
-  // const div = $("<div>").appendTo(footer).addClass("icons");
-  // const icon1 = $("<img>").appendTo(div);
-  // const icon2 = $("<img>").appendTo(div);
-  // const icon3 = $("<img>").appendTo(div);
   return($tweet);
+  
 }
-
+let tweetContainer = $('#all-tweets');
 
 function renderTweets(tweets) {
+  console.log("renderTweets and tweets: ", tweets);
+
+  tweetContainer.empty();
   for (let i = 0; i < tweets.length; i += 1){
     const tweet = createTweetElement(tweets[i]);
-    // console.log(`$tweet[${i}]: , ${tweet}`);
-    $('#tweets-container').append(tweet);
+    console.log(tweet)
+    tweetContainer.prepend(tweet);
   };
 
 }
 
-renderTweets(data);
+// renderTweets(data);
+
+
+function getAllTweets(data) {
+  // console.log("getAlltweets::", tweets);
+  $.ajax({
+    method: "GET",
+    url: "/tweets/",
+    dataType: 'json'
+  }).done(function(data) {
+    // console.log("AJAX getALLTWEETS, tweets: ", tweets);
+    // tweets.forEach((tweet) => {
+      // const element =  
+      renderTweets(data);     
+      // allTweets.prepend(element);
+    // })
+  });
+}
+
+// getAllTweets();
+
+// post request from user
+$("#tweets-maker").on('submit', function(event) {
+  console.log("hit the button, event: ", event);
+  // prevent the default behavor
+  event.preventDefault();
+  // get the data from the form
+  // const content = $(this).find('input').val();
+  // ajax post request
+  const serialized = $(this).serialize();
+  console.log("serialized: ", serialized);
+  console.log("this: ", $(this));
+  console.log("date", data);
+  let form = this;
+  // $("textarea", this).val("");
+  $.ajax({    
+    method: "POST",
+    url: "/tweets",
+    data: serialized
+  }).done(function() {
+    form.reset();
+    // on success, refresh the creaks on the page
+    console.log("AJAX #tweeter-maker", serialized);
+    getAllTweets(serialized);
+    // renderTweets(serialized);
+    // getAllCreaks();    
+    // getAllTweets();
+  });
+});
