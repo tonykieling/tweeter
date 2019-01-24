@@ -1,5 +1,5 @@
 main .new-tweet {
-  position: absolute;
+  margin-top: 10px;
   width: calc(100% - 4em);
   height: 180px;
   margin-left: 2em;
@@ -9,9 +9,9 @@ main .new-tweet {
 }
 
 main h2{
-  position: absolute;
+  
   width: 90%;
-  left: 5%;
+  margin-left: 15px;
   margin-top: 2%;
   border-bottom: 1px solid grey;
 }
@@ -22,22 +22,21 @@ main h2{
 }
 
 main .new-tweet textarea {
-  position: absolute;
-  top: 25%;
+  
   width: 90%;
-  height: 50%;
-  left: 5%;
+  margin-left: 15px;
+  height: 70px;
   
 }
 
 .new-tweet input { 
-  position: absolute;
-  left: 5%;
-  bottom: 5%;
+  
+  margin-left: 15px;
+  margin-top: 10px;
 }
 
 .new-tweet span {
-  position: absolute;
-  right: 5%;
-  bottom: 5%;
+  
+  margin-left: 260px;
+  
 }

@@ -10,14 +10,15 @@ nav#nav-bar {
 }
 
 #nav-bar .logo {
+  float: left;
   height: 80px;
   width: 80px;
 }
 
 #nav-bar .header {
-  position: absolute;
+  float: inline-start;
   padding-left: 10px;
-  top: 0px;
+  top: -20px;
   line-height: 80px;
   vertical-align: middle;
   font-size: 2em;
