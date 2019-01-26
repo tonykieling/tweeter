@@ -28,7 +28,6 @@ function createTweetElement(tweetData){
   return($tweet);  
 }
 
-console.log("public/scripts/app.js");
 
 let tweetContainer = $('#all-tweets');
 
@@ -46,7 +45,6 @@ function loadTweets() {
     url: "/tweets",
     dataType: 'json'
   }).done(function(data) {
-      console.log("here");
       $('#all-tweets').empty();
       renderTweets(data);     
   });
@@ -58,19 +56,19 @@ loadTweets();
 $("#tweets-maker").on('submit', function(event) {
   // prevent the default behavor
   event.preventDefault();
+  
   // get the data from the form
   // ajax post request
   const serialized = $(this).serialize();
-  console.log("serialized: ", serialized);
-  console.log("this: ", $(this));
   let form = this;
-  $("#counter").text("140");
+
   $.ajax({    
     method: "POST",
     url: "/tweets",
     data: serialized
-  }).done(function() {
-    form.reset();
+  }).done(function() {    
+    form.reset();   // cleans the form area
+    $("#counter").text("140");    // sets the label for the original max
 
     // on success, refresh the creaks on the page    
     loadTweets(serialized);

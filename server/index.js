@@ -20,7 +20,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     throw err;
   }
 
-
   // We have a connection to the "tweeter" db, starting here.
   const DataHelpers = require("./lib/data-helpers.js")(db);
 
