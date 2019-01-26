@@ -5,21 +5,25 @@ nav#nav-bar {
   width: 100%;
   background-color: #00a087;
   color: #e8fdff;
+  padding: 0px;
   padding-left: 2em;
   padding-right: 2em;
 }
 
-#nav-bar .logo {
+#nav-bar #logo {
   float: left;
   height: 80px;
   width: 80px;
 }
 
-#nav-bar .header {
-  float: inline-start;
+#nav-bar #header {
   padding-left: 10px;
-  top: -20px;
   line-height: 80px;
-  vertical-align: middle;
   font-size: 2em;
+}
+
+#nav-bar #compose {
+  float: right; 
+  margin-top: 25px;
+
 }

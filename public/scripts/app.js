@@ -1,18 +1,17 @@
 
 $(function (){
 
-  // function to escape possible malicious tags, which turns them in text
+  // function to escape possible malicious tags, turnning the user's message into text
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+  // function to formate the user's message into a valid HTML tweet
   function createTweetElement(tweetData){
     const days = (Math.round((((Date.now()) - (Number(tweetData.created_at))) / 1000) / 86400));
-    console.log("${tweetData.content.text}: ", tweetData.content.text);
     const message = `<p>${escape(tweetData.content.text)}</p>`;
-    console.log("message: ", message);
     const $tweet = `
     <article class="tweet-container">
 
@@ -43,6 +42,7 @@ $(function (){
 
   let tweetContainer = $('#all-tweets');
 
+  // function to render each tweet from the database and call the element
   function renderTweets(tweets) {
     for (let i = 0; i < tweets.length; i += 1){
       const tweet = createTweetElement(tweets[i]);
@@ -63,6 +63,7 @@ $(function (){
   }
 
   loadTweets();
+
 
   // post request from user
   $("#tweets-maker").on('submit', function(event) {
