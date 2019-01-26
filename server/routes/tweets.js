@@ -5,11 +5,9 @@ const express       = require('express');
 const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
-  console.log("server/routes/tweets.js");
 
+  // gets tweets from the database (Mongo)
   tweetsRoutes.get("/", function(req, res) {
-    console.log("GET server/routes/tweets.js");
-    console.log("DataHelpers: ", DataHelpers);
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -20,13 +18,14 @@ module.exports = function(DataHelpers) {
   });
 
 
-
+  // writes a new tweet
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
 
+    // sets or generates and ID to the user
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
@@ -36,8 +35,8 @@ module.exports = function(DataHelpers) {
       created_at: Date.now()
     };
 
+    // call the function to wirte the tweet
     DataHelpers.saveTweet(tweet, (err) => {
-      console.log("SAVE-TWEET server/routes/tweets.js");
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
