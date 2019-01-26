@@ -1,7 +1,18 @@
 
 $(function (){
+
+  // function to escape possible malicious tags, which turns them in text
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   function createTweetElement(tweetData){
     const days = (Math.round((((Date.now()) - (Number(tweetData.created_at))) / 1000) / 86400));
+    console.log("${tweetData.content.text}: ", tweetData.content.text);
+    const message = `<p>${escape(tweetData.content.text)}</p>`;
+    console.log("message: ", message);
     const $tweet = `
     <article class="tweet-container">
 
@@ -11,7 +22,7 @@ $(function (){
             <p class="idPerson" name="idPerson">${tweetData.user.handle}</p>          
           </header>
           
-          <p class="message" name="message">${tweetData.content.text}</p>
+          <p class="message" name="message">${message}</p>
           
           <footer class="footer">
             <p name="timeAgo">${days} Days Ago
@@ -56,9 +67,7 @@ $(function (){
   // post request from user
   $("#tweets-maker").on('submit', function(event) {
     const counter = $('#counter');
-    console.log("counter.text(): ", counter.text());
     if (((counter.text()) >= 0) && (counter.text() < 140)){
-      alert("OK");
 
       // prevent the default behaviour
       event.preventDefault();
@@ -79,6 +88,7 @@ $(function (){
         // on success, refresh the creaks on the page    
         loadTweets(serialized);
       });
+      
     } else {
       alert("Please the message is suppose to be bigger than 0 and up to 140 characters.");
 
