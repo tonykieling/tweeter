@@ -66,6 +66,8 @@ $(function (){
 
 
   // post request from user
+  // here send the user's message to the server process 
+  // and call AJAX to refresh the screen
   $("#tweets-maker").on('submit', function(event) {
     const counter = $('#counter');
     if (((counter.text()) >= 0) && (counter.text() < 140)){
@@ -97,5 +99,15 @@ $(function (){
       event.preventDefault();
     }
   });
+
+  $("#compose").on('click', function(event) {
+      if ( $( ".new-tweet" ).is( ":hidden" ) ) {
+        $( ".new-tweet" ).slideDown( "slow" );
+        $("main .new-tweet textarea").focus();
+      } else {
+        $( ".new-tweet" ).slideUp();
+      }
+  });
+
 });
 
