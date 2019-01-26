@@ -64,12 +64,14 @@ $("#tweets-maker").on('submit', function(event) {
   console.log("serialized: ", serialized);
   console.log("this: ", $(this));
   let form = this;
+  $("#counter").text("140");
   $.ajax({    
     method: "POST",
     url: "/tweets",
     data: serialized
   }).done(function() {
     form.reset();
+
     // on success, refresh the creaks on the page    
     loadTweets(serialized);
   });
