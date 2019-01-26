@@ -2,9 +2,8 @@
 
   const maxCharacteres = 140;
 
-  let textareaElement = $("#txtarea");
-  $(textareaElement).on("input", function() {
-    
+  let textAreaElement = $("#txtarea");
+  $(textAreaElement).on("input", function() {
     let length = $(this).val().length;
     length = maxCharacteres - length;
     $("#counter").html(length);

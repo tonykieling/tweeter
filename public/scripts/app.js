@@ -99,4 +99,3 @@ $(function (){
   });
 });
 
-// https://formden.com/blog/validate-contact-form-jquery
