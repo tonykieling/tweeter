@@ -30,7 +30,7 @@ This repository is the starter code for the project: Students will fork and clon
 ## Images
 * **Main Page** 
 
-<img src="docs/main.png" width="650" height="450"/>
+<img src="docs/main.png" width="600" height="400"/>
 
 
 * **Compose Screen**
@@ -40,7 +40,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 * **Dealing with big messages**
 
-<img src="docs/big-message.png" width="550" height="400"/>
+<img src="docs/big-message.png" width="600" height="400"/>
 
 
 
