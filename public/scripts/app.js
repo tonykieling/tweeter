@@ -100,6 +100,8 @@ $(function (){
     }
   });
 
+  // eventhandler to toogle the newtweet composer
+  // it slides and brings the focus to the previous one
   $("#compose").on('click', function(event) {
       if ( $( ".new-tweet" ).is( ":hidden" ) ) {
         $( ".new-tweet" ).slideDown( "slow" );
