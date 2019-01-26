@@ -40,7 +40,8 @@
           <form id="tweets-maker" action="/tweets" method="POST">      
             <textarea id="txtarea" name="text" user="Newton" placeholder="What are you humming about?"></textarea>
             <input type="submit" value="Tweet" method="post">
-
+            <label class="msg" id="zero">Error: Message is empty.</label>
+            <label class="msg" id="toobig">Error: Message is bigger than 140.</label>
             <span id="counter">140</span>
           </form>
         </div>

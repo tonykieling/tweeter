@@ -37,3 +37,13 @@ main .new-tweet textarea {
   padding-right: 25px;
   line-height: 45px;
 }
+
+.new-tweet .msg {
+  display: none;
+  text-align: center;
+  animation:blinkingText 1s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: red;    }
+  50%{   color: transparent;    }
+}

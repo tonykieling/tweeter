@@ -69,8 +69,12 @@ $(function (){
   // here send the user's message to the server process 
   // and call AJAX to refresh the screen
   $("#tweets-maker").on('submit', function(event) {
+
+    //event handler to deal with error message regardless to the
+    // message is empty or bigger than 140 characters
+    // it checks wheter the message has an appropriate length
     const counter = $('#counter');
-    if (((counter.text()) >= 0) && (counter.text() < 140)){
+    if (((Number(counter.text())) >= 0) && (Number(counter.text()) < 140)){
 
       // prevent the default behaviour
       event.preventDefault();
@@ -86,29 +90,43 @@ $(function (){
         data: serialized
       }).done(function() {    
         form.reset();   // cleans the form area
-        $("#counter").text("140");    // sets the label for the original max
+        counter.text("140");    // sets the label for the original max
 
         // on success, refresh the creaks on the page    
         loadTweets(serialized);
+
+        // move the cursor to the textarea again after insert the message into the database
+        $("main .new-tweet textarea").focus();
       });
       
     } else {
-      alert("Please the message is suppose to be bigger than 0 and up to 140 characters.");
 
       // prevent the default behaviour
+      // it avoids the browser send the data before the right time
       event.preventDefault();
+
+      // show the error message regarding the type of error
+      if ((Number(counter.text())) === 140) {   // textarea empty
+        $(".new-tweet #zero").show();
+        $("main .new-tweet textarea").focus();
+      } else {    // message bigger than 140
+          $(".new-tweet #toobig").show();
+          $("main .new-tweet textarea").focus();  
+      }
+
     }
   });
 
   // eventhandler to toogle the newtweet composer
   // it slides and brings the focus to the previous one
   $("#compose").on('click', function(event) {
-      if ( $( ".new-tweet" ).is( ":hidden" ) ) {
-        $( ".new-tweet" ).slideDown( "slow" );
-        $("main .new-tweet textarea").focus();
-      } else {
-        $( ".new-tweet" ).slideUp();
-      }
+    $(".new-tweet #zero").hide();
+    if ( $( ".new-tweet" ).is( ":hidden" ) ) {
+      $( ".new-tweet" ).slideDown( "slow" );
+      $("main .new-tweet textarea").focus();
+    } else {
+      $( ".new-tweet" ).slideUp();
+    }
   });
 
 });
