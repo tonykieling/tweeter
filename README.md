@@ -12,6 +12,7 @@ This repository is the starter code for the project: Students will fork and clon
 2. Install dependencies using the `npm install` command.
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
+5. For development and test purposes, there is a file in server/lib/util/mongo_example.js which cleans and starts the database with 3 documents.
 
 
 
@@ -25,5 +26,26 @@ This repository is the starter code for the project: Students will fork and clon
 - Mongodb
 
 
-## Pictures
 
+## Images
+* **Main Page** 
+
+<img src="docs/main.png" width="650" height="450"/>
+
+
+* **Compose Screen**
+
+<img src="docs/compose.png" width="600" height="400"/>
+
+
+* **Dealing with big messages**
+
+<img src="docs/big-message.png" width="550" height="400"/>
+
+
+
+## Improvements
+- User register and actions/functions regarding this feature
+- Aplly actions to the buttos/icons
+- Better Responsive Design
+ 

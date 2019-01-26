@@ -24,7 +24,12 @@ nav#nav-bar {
 }
 
 #nav-bar #compose {
-  float: right; 
   margin-top: 25px;
 
 }
+
+#nav-bar div{
+  display: inline;
+  margin-right: 50%;
+}
+
