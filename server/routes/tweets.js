@@ -1,13 +1,15 @@
 "use strict";
 
 const userHelper    = require("../lib/util/user-helper")
-
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
+  console.log("server/routes/tweets.js");
 
   tweetsRoutes.get("/", function(req, res) {
+    console.log("GET server/routes/tweets.js");
+    console.log("DataHelpers: ", DataHelpers);
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -15,12 +17,12 @@ module.exports = function(DataHelpers) {
         res.json(tweets);
       }
     });
-    // res.json("answer");
   });
 
 
 
   tweetsRoutes.post("/", function(req, res) {
+    console.log("POST server/routes/tweets.js");
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
@@ -36,6 +38,7 @@ module.exports = function(DataHelpers) {
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
+      console.log("SAVE-TWEET server/routes/tweets.js");
       if (err) {
         res.status(500).json({ error: err.message });
       } else {

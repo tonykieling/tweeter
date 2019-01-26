@@ -28,6 +28,8 @@ function createTweetElement(tweetData){
   return($tweet);  
 }
 
+console.log("public/scripts/app.js");
+
 let tweetContainer = $('#all-tweets');
 
 function renderTweets(tweets) {
