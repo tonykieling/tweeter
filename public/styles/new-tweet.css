@@ -32,18 +32,23 @@ main .new-tweet textarea {
   margin-top: 10px;
 }
 
-.new-tweet span {
-  float: right;
-  padding-right: 25px;
-  line-height: 45px;
-}
 
 .new-tweet .msg {
   display: none;
-  text-align: center;
+  margin-left: 30px;
   animation:blinkingText 1s infinite;
 }
 @keyframes blinkingText{
   0%{     color: red;    }
   50%{   color: transparent;    }
+}
+
+.new-tweet #zero {
+  margin-left: 50px;
+}
+
+.new-tweet span {
+  float: right;
+  padding-right: 25px;
+  line-height: 45px;
 }
