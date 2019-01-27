@@ -14,8 +14,9 @@ module.exports = function makeDataHelpers(db) {
     },
 
     // It gets data from MongoDB
-    getTweets: function(callback) {  
-      db.collection("tweets").find().toArray(callback);
+    getTweets: function(callback) {
+      db.collection("tweets").find().sort( {created_at: 1}).toArray(callback); //descending
+      // db.collection("tweets").find().toArray(callback);
     }    
 
   };
