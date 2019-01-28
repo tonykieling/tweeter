@@ -8,6 +8,14 @@ $(function (){
     return div.innerHTML;
   }
 
+
+  
+  // TODO
+  // create a function to consider minutes hours and days, instead only days
+
+
+
+
   // function to formate the user's message into a valid HTML tweet
   function createTweetElement(tweetData){
     const days = (Math.round((((Date.now()) - (Number(tweetData.created_at))) / 1000) / 86400));

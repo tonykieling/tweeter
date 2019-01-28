@@ -48,4 +48,6 @@ This repository is the starter code for the project: Students will fork and clon
 - User's register and actions/functions regarding this feature
 - Aplly actions to the buttos/icons
 - Better Responsive Design
+- Timestamp needs to consider minutes, hours, and days, instead only days
+- Check some inconsistency between es5 and es6 syntax
  

@@ -1,0 +1,6 @@
+
+- Timestamp needs to consider minutes, hours, and days, instead only days
+- Check some inconsistency between es5 and es6 syntax
+
+app.js
+index.html (identation)
