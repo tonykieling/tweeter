@@ -10,7 +10,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 1. Fork this repository, then clone your fork of this repository.
 2. Install dependencies using the `npm install` command.
-3. Start the web server using the `node server/index.js` command.
+3. Start the web server using the `npm start` or `node server/index.js` command.
 4. Go to <http://localhost:8080/> in your browser.
 5. For development and test purposes, there is a file in 'database/tweets_example.js' which cleans and starts the database with 3 documents. Just in case, run `node database/tweets_example.js`
 
