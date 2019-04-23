@@ -9,16 +9,21 @@ $(function (){
   }
 
 
-  
-  // TODO
-  // create a function to consider minutes hours and days, instead only days
-
-
-
+  // function to consider minutes hours and days, instead only days
+  function timeAgo(date_cretated) {
+    // const days = (Math.round((((Date.now()) - (Number(date_cretated))) / 1000) / 86400));
+    const countTime = (Math.round((((Date.now()) - (Number(date_cretated))) / 1000)));
+    if (countTime > 86400)
+      return `${(Math.round((((Date.now()) - (Number(date_cretated))) / 1000) / 86400))} Days Ago`;
+    else if (countTime > 3600) {
+      return `${(Math.round((((Date.now()) - (Number(date_cretated))) / 1000) / 3600))} Hours Ago`;
+    } else 
+    return `${(Math.round((((Date.now()) - (Number(date_cretated))) / 1000) / 60))} Minutes Ago`;
+  }
 
   // function to formate the user's message into a valid HTML tweet
   function createTweetElement(tweetData){
-    const days = (Math.round((((Date.now()) - (Number(tweetData.created_at))) / 1000) / 86400));
+    const timeCretated = timeAgo(tweetData.created_at);
     const message = `<p>${escape(tweetData.content.text)}</p>`;
     const $tweet = `
     <article class="tweet-container">
@@ -32,9 +37,7 @@ $(function (){
           <p class="message" name="message">${message}</p>
           
           <footer class="footer">
-            <p name="timeAgo">${days} Days Ago
-
-            </p>
+            <p name="timeAgo"> ${timeCretated} </p>
             <div class="icons">
               <img name="icon1" src="images/flag.png">
               <img name="icon2" src="images/retweet.png">

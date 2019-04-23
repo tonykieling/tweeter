@@ -20,6 +20,8 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     db.collection("tweets").remove({}) :
     null;
 
+  const timeAux = Date.now() - 25000;
+
   const tweets = [
     {
       "user": {
@@ -34,7 +36,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-      "created_at": 1508630651870
+      "created_at": 1554630651870
     },
     {
       "user": {
@@ -48,7 +50,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       "content": {
         "text": "Je pense , donc je suis"
       },
-      "created_at": 1546630651870
+      "created_at": 1555830651870
     },
     {
       "user": {
@@ -63,17 +65,32 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       "content": {
         "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
       },
-      "created_at": 1461113796368
-    }
+      "created_at": timeAux
+    },
+    {
+      "user": {
+        "name": "Albert Einstein",
+        "avatars": {
+          "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+          "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+          "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+        },
+        "handle": "@johann49"
+      },
+      "content": {
+        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+      },
+      "created_at": 1555980651870
+    }    
   ];
 
 
   // insert the 3 above
-  console.log("inserting 3 new tweets...");
+  console.log(`inserting ${tweets.length} new tweets...`);
   db.collection("tweets").insert(tweets);
 
   console.log('Done!!')
-  console.log("3 documents have been inserted to the Mongodb as tweets' examples.");
+  console.log(`${tweets.length} documents have been inserted to the Mongodb as tweets' examples.`);
 
   db.close();
 
